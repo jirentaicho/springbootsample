@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>アニメコム</title>
+</head>
+<body>
+	<p>お気に入りのアニメとキャラクターを登録しよう</p>
+	<table>
+	    <thead>
+	        <tr>
+	            <th colspan="2">アニメ情報</th>
+	        </tr>
+	    </thead>
+	    <tbody　th:each="animation : ${animations}">
+	        <tr>
+	        	<td:block th:if="${animation.isBroadNow()}">
+				  <td　th:text="放送中">放送中</td>
+				</td:block>
+				<td:block th:if="${!animation.isBroadNow()}">
+				  <td　th:text="放送していません">放送していません</td>
+				</td:block>
+	            <td　th:text="${animation.title}">タイトル</td>
+	            <td　th:text="${#strings.substring(animation.broadcast_start,0,10)}">放送開始日</td>
+	        </tr>
+	    </tbody>
+	</table>
+	<!-- 追加 -->
+	<a href="/register" th:href="@{/register}">新規登録する</a>
+</body>
+</html>

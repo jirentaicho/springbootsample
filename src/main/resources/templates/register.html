@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>アニメコム</title>
+</head>
+<body>
+
+	<form th:action="@{register}" th:object="${animationReqeust}" method="POST" >
+		<div>
+			<label>タイトル</label>
+			<input type="text" th:field="*{title}" required>
+		</div>
+		
+		<div>
+			<label>放送開始</label>
+			<input type="date" th:field="*{broadcast_start}" required>
+		</div>
+		
+		<div>
+			<label>放送終了</label>
+			<input type="date" th:field="*{broadcast_end}" required>
+		</div>
+		
+		<button type="submit">登録する</button>
+	</form>
+
+</body>
+</html>
