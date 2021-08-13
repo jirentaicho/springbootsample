@@ -9,17 +9,17 @@
 	<form th:action="@{register}" th:object="${animationReqeust}" method="POST" >
 		<div>
 			<label>タイトル</label>
-			<input type="text" th:field="*{title}" required>
+			<input type="text" th:field="*{title}">
 		</div>
 		
 		<div>
 			<label>放送開始</label>
-			<input type="date" th:field="*{broadcast_start}" required>
+			<input type="date" th:field="*{broadcast_start}">
 		</div>
 		
 		<div>
 			<label>放送終了</label>
-			<input type="date" th:field="*{broadcast_end}" required>
+			<input type="date" th:field="*{broadcast_end}">
 		</div>
 		
 		<button type="submit">登録する</button>

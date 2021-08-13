@@ -2,6 +2,8 @@ package com.volkruss.application.request;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Getter;
@@ -13,6 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AnimationRequest {
 	
+	@NotEmpty
 	private String title;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
