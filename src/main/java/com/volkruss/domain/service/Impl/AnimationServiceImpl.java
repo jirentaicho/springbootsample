@@ -2,6 +2,7 @@ package com.volkruss.domain.service.Impl;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,26 +22,11 @@ public class AnimationServiceImpl implements AnimationService{
 		return animationRepository.getAll();
 	}
 
-	//　追加
 	@Override
 	public void insert(AnimationRequest request) {
-		Animation animation = create(request);
+		// requestの内容をModelMapperを利用して変換する
+		ModelMapper modelMapper = new ModelMapper();
+		Animation animation = modelMapper.map(request,Animation.class);
 		animationRepository.insert(animation);
-	}
-	
-	// 追加
-	/**
-	 * <P>
-	 * リクエストからモデルを作成します。
-	 * </P>
-	 * @param request
-	 * @return
-	 */
-	private Animation create(AnimationRequest request) {
-		Animation animation = new Animation();
-		animation.setTitle(request.getTitle());
-		animation.setBroadcast_start(request.getBroadcast_start());
-		animation.setBroadcast_end(request.getBroadcast_end());
-		return animation;
-	}
+	}	
 }
