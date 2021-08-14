@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.volkruss.application.request.AnimationRequest;
-import com.volkruss.application.validation.AnimationValidation;
 import com.volkruss.domain.service.AnimationService;
+import com.volkruss.domain.validation.AnimationValidation;
 
 @Controller
 public class RegisterController {

@@ -1,4 +1,4 @@
-package com.volkruss.application.validation;
+package com.volkruss.domain.validation;
 
 import java.util.Locale;
 import java.util.Objects;
